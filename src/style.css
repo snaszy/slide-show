@@ -1,3 +1,65 @@
 html {
     font-family:Arial, Helvetica, sans-serif;
 }
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+header {
+    height: 10vh;
+    background-color: black;
+}
+.container {
+    height: 80vh;
+}
+.image {
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: 10vh;
+    bottom: 10vh;
+    height: 100%;
+    opacity: 0;
+}
+.active {
+    opacity: 1;
+}
+#image1 {
+    background: url('./images/mountain1.jpg');
+}
+#image2 {
+    background: url('./images/mountain2.jpg');
+}
+#image3 {
+    background: url('./images/mountain3.jpg');
+}
+#image4 {
+    background: url('./images/mountain4.png');
+}
+.nav {
+    background-color: rgba(0,0,0,.75);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+}
+.nav:hover {
+    background-color: rgba(100,100,100,.5);
+    color: black;
+}
+#left-nav {
+    position: absolute;
+    left: 20px;
+    top: 50vh;
+}
+#right-nav {
+    position: absolute;
+    right: 20px;
+    top: 50vh;
+}
+footer {
+    height: 10vh;
+    background-color: black;
+}
