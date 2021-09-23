@@ -21,6 +21,7 @@ header {
     bottom: 10vh;
     height: 100%;
     opacity: 0;
+    transition: opacity 300ms ease-in-out;
 }
 .active {
     opacity: 1;
@@ -37,15 +38,16 @@ header {
 #image4 {
     background: url('./images/mountain4.png');
 }
-.nav {
+.nav-direction {
     background-color: rgba(0,0,0,.75);
     color: white;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     text-align: center;
+    cursor: pointer;
 }
-.nav:hover {
+.nav-direction:hover {
     background-color: rgba(100,100,100,.5);
     color: black;
 }
@@ -58,6 +60,24 @@ header {
     position: absolute;
     right: 20px;
     top: 50vh;
+}
+.nav-selector {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    left: 0;
+    bottom: 10%;
+    width: 100%;
+}
+.nav-circle {
+    border: .1rem solid white;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+}
+.selected {
+    background-color: white;
 }
 footer {
     height: 10vh;
