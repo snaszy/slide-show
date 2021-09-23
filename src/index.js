@@ -26,12 +26,27 @@ const loadPage = () => {
     imageArray.push(fourthImage);
 
     updateCircles();
+    slideInterval()
+}
+
+const slideInterval = () => {
+    setInterval(function() { 
+        indexCounter++;
+        clearImages() 
+        updateDisplay()
+        console.log(indexCounter)
+    }, 5000);
 }
 
 const clearNav = (parent) => { 
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild)
     }
+}
+const clearImages = () => {
+    document.querySelectorAll('.image').forEach(image => {
+        image.classList.remove('active');
+    })
 }
 
 const updateCircles = () => {
@@ -66,6 +81,18 @@ const checkNumber = () => {
     }
 }
 
+const checkCircles = (circle) => {
+    if (circle.id.includes('1')) {
+        indexCounter = 0;
+    }else if (circle.id.includes('2')) {
+        indexCounter = 1;
+    }else if (circle.id.includes('3')) {
+        indexCounter = 2;
+    }else {
+        indexCounter = 3;
+    }
+}
+
 const updateDisplay = () => {
     checkNumber();
     imageArray[indexCounter].classList.toggle('active');
@@ -78,23 +105,13 @@ document.addEventListener('click', (e) => {
     const circleClick = e.target.matches('.nav-circle');
     
     if (rightClick || leftClick || circleClick) {
-        document.querySelectorAll('.image').forEach(image => {
-            image.classList.remove('active');
-        })
+        clearImages();
     }
 
     let currentCircle;
     if (circleClick) {
         currentCircle = e.target.closest('.nav-circle');
-        if (currentCircle.id.includes('1')) {
-            indexCounter = 0;
-        }else if (currentCircle.id.includes('2')) {
-            indexCounter = 1;
-        }else if (currentCircle.id.includes('3')) {
-            indexCounter = 2;
-        }else {
-            indexCounter = 3;
-        }
+        checkCircles(currentCircle);
         updateDisplay();
     }
 
